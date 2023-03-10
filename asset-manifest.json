@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ClassifyYourFriend/static/css/main.3fca14d4.css",
+    "main.js": "/ClassifyYourFriend/static/js/main.0677c0c1.js",
+    "index.html": "/ClassifyYourFriend/index.html",
+    "main.3fca14d4.css.map": "/ClassifyYourFriend/static/css/main.3fca14d4.css.map",
+    "main.0677c0c1.js.map": "/ClassifyYourFriend/static/js/main.0677c0c1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3fca14d4.css",
+    "static/js/main.0677c0c1.js"
+  ]
+}
