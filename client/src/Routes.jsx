@@ -5,11 +5,9 @@ import Home from "./pages/home";
 
 const ProjectRoutes = () => {
     return (
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
             <Routes>
                 <Route path="/" element={<Home/>} />
-
-
             </Routes>
         </Router>
     );
