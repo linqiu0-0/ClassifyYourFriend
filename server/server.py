@@ -8,29 +8,14 @@ cors = CORS(app)
 @app.route("/classify", methods=['POST'])
 def classify():
     if request.method == 'POST':
+        data = request.json
+        fileData = data.get('image')
+        fileName = fileData.get('name')
+        name = (fileName.split('/')[-1].split('.')[0]).replace('_', ' ').title()
+        print(name)
         response = {
-            "breed": "Bulbasaur"
+            "breed": name
         }
         return response
     return "bad requests", 500
 
-
-@app.route('/data', methods=['GET'])
-def get_time():
-    # Returning an api for showing in  reactjs
-    return {
-        'Name': "geek",
-        "Age": "22",
-        "Date": 1,
-        "programming": "python"
-    }
-
-
-
-@app.route('/profile')
-def my_profile():
-    response_body = {
-        "name": "Nagato",
-        "about" :"Hello! I'm a full stack developer that loves python and javascript"
-    }
-    return response_body

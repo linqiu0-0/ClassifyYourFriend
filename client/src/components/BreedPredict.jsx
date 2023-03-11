@@ -5,7 +5,8 @@ const BreedPredict = ({ breed }) => {
 
             Your breed is
             <p className='font-sans text-center text-gray-800 font-bold text-5xl self-center'>
-                {breed}
+                {/* {breed} */}
+                Bulbasaur
             </p >
         </div>
     );

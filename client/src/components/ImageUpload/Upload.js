@@ -2,63 +2,60 @@ import React, { useState } from 'react';
 import { Button } from '@mui/material';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import ImagePreview from "./ImagePreview";
+import ExampleImages from "./ExampleImages";
 import BreedPredict from "../BreedPredict";
 import { handlePostFetch } from '../Utils';
 
 const Upload = () => {
-    const [file, setFile] = useState([]);
-    const [fileData, setFileData] = useState([]);
+    const [file, setFile] = useState();
+    const [fileData, setFileData] = useState();
     const [breed, setBreed] = useState("");
-    
+
     const handleChange = (e) => {
-        console.log(e.target.files);
-        let newFiles = [...e.target.files];
-        setFile([...file, ...newFiles]);
-        setFileData([...fileData, {}]);
-        console.log(fileData);
+        let newFiles = e.target.files[0];
+        // console.log(e.target.files[0]);
+        setFile(newFiles);
+        setFileData({});
     };
-    
-    const handleClick = (index) => (e) => {
-        setFile(oldValues => {
-            return oldValues.filter((_, i) => i !== index)
-        })
-        setFileData(oldValues => {
-            return oldValues.filter((_, i) => i !== index)
-        })
+
+    const handleClose = () => {
+        setFile()
+        setFileData()
+        setBreed()
     };
 
     const handleClassify = () => {
+        console.log(fileData)
         handlePostFetch("classify", { image: fileData }).then((res) => {
             setBreed(res.breed);
         })
+       
     }
 
-    const getFileData = (index) => (fileData) => {
-        fileData[index] = fileData
+    const getFileData = (fileData) => {
+        setFileData(fileData)
     }
 
     return (
         <div className='flex gap-10'>
-            <div className='flex flex-col gap-12' >
-
-                {file.map((file, index) => (
-                    <ImagePreview file={file} key={index} onClick={handleClick(index)} getFileData={getFileData(index)} />
-                ))}
-                {(file.length === 0) ?
-                    <>
-                        <img src="images/placeholder.svg" alt="img_placeholder" width="300" height="300" />
-                        <Button size="large" variant="contained" component="label" startIcon={<AddAPhotoIcon />}>
-                            Upload Images
-                            <input hidden accept="image/*" multiple type="file" onChange={handleChange} />
-                        </Button>
-                    </>
-                    :
+            {file ?
+                <div className='flex flex-col gap-12' >
+                    <ImagePreview file={file} onClick={handleClose} getFileData={getFileData} />
                     <Button size="large" variant="contained" component="label" onClick={handleClassify} startIcon={<AddAPhotoIcon />}>
                         Classify
                     </Button>
-                }
-            </div>
-            {(breed && file.length !== 0) && <BreedPredict breed={breed}/>}
+                </div>
+                :
+                <div className='flex flex-col gap-4' >
+                    <img src="images/placeholder.svg" alt="img_placeholder" width="auto" height="auto" className='mb-2' />
+                    <Button size="large" variant="contained" component="label" startIcon={<AddAPhotoIcon />}>
+                        Upload Images
+                        <input hidden accept="image/*" multiple type="file" onChange={handleChange} />
+                    </Button>
+                    <ExampleImages uploadLocalFile={(localFile) => setFile(localFile)} />
+                </div>
+            }
+            {(breed && file) && <BreedPredict breed={breed} />}
         </div>
     );
 };

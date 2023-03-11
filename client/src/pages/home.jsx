@@ -2,12 +2,9 @@
 import React from "react";
 import Upload from "../components/ImageUpload/Upload";
 import MainAppBar from "../components/AppBar";
-import ExampleImages from "../components/ExampleImages";
 
 const Home = () => {
     // eslint-disable-next-line
-    const [images, setImages] = React.useState("");
-
 
     return (
         <div className="bg-gray_50 flex flex-col  gap-12 items-center min-h-screen w-[100%] ">
@@ -18,10 +15,7 @@ const Home = () => {
                 </p >
             </div>
             <div className="flex flex-col gap-2 bg-white_A700  drop-shadow-xl  px-8 py-8 rounded-radius10 mb-12">
-                <Upload classname="self-center" photos={photoData => {
-                    setImages(photoData);
-                }} />
-               <ExampleImages setImages={setImages}/>
+                <Upload classname="self-center"/>
             </div>
             
             

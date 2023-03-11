@@ -4,7 +4,6 @@ import { useState } from 'react';
 import "../../styles/App.css";
 import CancelIcon from '@mui/icons-material/Cancel';
 import IconButton from "@mui/material/IconButton";
-import Grid from "@mui/material/Unstable_Grid2";
 
 const ImagePreview = ({ file, onClick, getFileData}) => {
     const [imageURL, setImageURL] = useState(null);
@@ -32,7 +31,7 @@ const ImagePreview = ({ file, onClick, getFileData}) => {
                 type: type,
                 data: base64,
             };
-            // console.log(fileData);
+            // console.log(base64);
             getFileData(fileData);
             setImageURL(URL.createObjectURL(file));
         } catch (error) {
