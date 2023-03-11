@@ -4,3 +4,9 @@
 .idea/
 package-lock.json
 /node_modules
+
+# data
+CatBreed/
+DogBreed/
+Cat_Dog_train_data/
+
