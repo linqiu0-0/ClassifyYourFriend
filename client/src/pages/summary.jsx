@@ -2,7 +2,6 @@
 import React from "react";
 import Grid from '@mui/material/Grid';
 import MainAppBar from "../components/AppBar";
-import { Link } from "react-router-dom";
 
 const Summary = () => {
     // eslint-disable-next-line

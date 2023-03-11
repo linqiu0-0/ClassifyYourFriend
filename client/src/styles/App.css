@@ -4,14 +4,10 @@
   object-fit: cover;
 }
 
-.sublease_info_img {
-  width: 800px;
-  height: 650px;
-}
-
-.upload_img {
-  max-height: 90px;
-  max-width: 120px;
+.example_img {
+  max-height: 100%;
+  max-width:  100%;
   width: auto;
   height: auto;
+  object-fit: cover;
 }

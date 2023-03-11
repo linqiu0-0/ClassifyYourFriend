@@ -1,51 +1,50 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Button } from '@mui/material';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import ImagePreview from "./ImagePreview";
 import BreedPredict from "../BreedPredict";
 import { handlePostFetch } from '../Utils';
 
-const Upload = ({ prevImages, photos }) => {
-    const [files, setFiles] = useState([]);
-    const [filesData, setFilesData] = useState([]);
+const Upload = () => {
+    const [file, setFile] = useState([]);
+    const [fileData, setFileData] = useState([]);
     const [breed, setBreed] = useState("");
+    
     const handleChange = (e) => {
+        console.log(e.target.files);
         let newFiles = [...e.target.files];
-        setFiles([...files, ...newFiles]);
-        setFilesData([...filesData, {}]);
+        setFile([...file, ...newFiles]);
+        setFileData([...fileData, {}]);
+        console.log(fileData);
     };
+    
     const handleClick = (index) => (e) => {
-        setFiles(oldValues => {
+        setFile(oldValues => {
             return oldValues.filter((_, i) => i !== index)
         })
-        setFilesData(oldValues => {
+        setFileData(oldValues => {
             return oldValues.filter((_, i) => i !== index)
         })
     };
 
     const handleClassify = () => {
-        handlePostFetch("classify", { image: filesData }).then((res) => {
+        handlePostFetch("classify", { image: fileData }).then((res) => {
             setBreed(res.breed);
         })
     }
 
-    useEffect(() => {
-        setFiles([...files, ...prevImages]);
-    }, [prevImages]);
-
     const getFileData = (index) => (fileData) => {
-        filesData[index] = fileData
-        photos(filesData);
+        fileData[index] = fileData
     }
 
     return (
         <div className='flex gap-10'>
             <div className='flex flex-col gap-12' >
 
-                {files.map((file, index) => (
+                {file.map((file, index) => (
                     <ImagePreview file={file} key={index} onClick={handleClick(index)} getFileData={getFileData(index)} />
                 ))}
-                {(files.length === 0) ?
+                {(file.length === 0) ?
                     <>
                         <img src="images/placeholder.svg" alt="img_placeholder" width="300" height="300" />
                         <Button size="large" variant="contained" component="label" startIcon={<AddAPhotoIcon />}>
@@ -59,7 +58,7 @@ const Upload = ({ prevImages, photos }) => {
                     </Button>
                 }
             </div>
-            {(breed && files.length !== 0) && <BreedPredict breed={breed}/>}
+            {(breed && file.length !== 0) && <BreedPredict breed={breed}/>}
         </div>
     );
 };

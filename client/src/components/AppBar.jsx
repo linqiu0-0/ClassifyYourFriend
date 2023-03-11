@@ -43,7 +43,7 @@ function MainAppBar({ username, userId }) {
                     }}
                 >
                     <Toolbar disableGutters>
-                        <SvgIcon component="a" fontSize="large" href="/home" sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, pt: '3px' }}>
+                        <SvgIcon component="a" fontSize="large" href="/" sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, pt: '3px' }}>
                             <PetsIcon />
                         </SvgIcon>
 

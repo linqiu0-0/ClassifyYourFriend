@@ -1,8 +1,12 @@
 
-const BreedPredict = ({breed}) => {
+const BreedPredict = ({ breed }) => {
     return (
-        <div>
-            Your breed is {breed}!
+        <div className="self-center">
+
+            Your breed is
+            <p className='font-sans text-center text-gray-800 font-bold text-5xl self-center'>
+                {breed}
+            </p >
         </div>
     );
 }
