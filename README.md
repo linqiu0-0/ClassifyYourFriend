@@ -20,3 +20,19 @@ Use `. env/bin/activate to activate` your virtual environment to manage the depe
 ### How to update dependency
 
 Use `pip freeze > requirements.txt` to introduce new dependencies.
+
+
+## Build & Deployment
+Frontend is deployed through Github static page hosting. To cut a new release on the frontend, 
+1. Go to `client` directory
+2. run `npm run deploy`
+
+    > That will cause the `predeploy` and `deploy` scripts defined in `client/package.json` to run.
+    >
+    > Under the hood, the `predeploy` script will build a distributable version of the React app and store it in a folder named `build`. Then, the `deploy` script will push the contents of that folder to a new commit on the `gh-pages` branch of the GitHub repository, creating that branch if it doesn't already exist.
+    > By default, the new commit on the `gh-pages` branch will have a commit message of "Updates". You can [specify a custom commit message](https://github.com/gitname/react-gh-pages/issues/80#issuecomment-1042449820) via the `-m` option, like this:
+    > ```shell
+    > $ npm run deploy -- -m "Deploy React app to GitHub Pages"
+    > ```
+At this point, the GitHub repository contains a branch named `gh-pages`, which contains the files that make up the distributable version of the React app. 
+You can view our deployed version at [ClassifyYourFriends](https://linqiu0-0.github.io/ClassifyYourFriend).

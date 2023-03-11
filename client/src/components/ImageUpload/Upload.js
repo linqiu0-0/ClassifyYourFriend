@@ -25,12 +25,8 @@ const Upload = ({ prevImages, photos }) => {
 
     const handleClassify = () => {
         handlePostFetch("classify", { image: filesData }).then((res) => {
-            console.log(res)
             setBreed(res.breed);
         })
-    
-
-        
     }
 
     useEffect(() => {
@@ -63,7 +59,7 @@ const Upload = ({ prevImages, photos }) => {
                     </Button>
                 }
             </div>
-            {(breed) && <BreedPredict breed={breed}/>}
+            {(breed && files.length !== 0) && <BreedPredict breed={breed}/>}
         </div>
     );
 };
