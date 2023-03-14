@@ -1,10 +1,10 @@
 import Button from '@mui/material/Button';
 
 const image_list = {
-    'images/bulbasaur.png': 'bulbasaur',
-    'images/golden_retriever.png':'golden_retriever',
+    'images/Siberian-Husky.jpg':'husky',
     'images/border_collie.jpg':'border_collie',
-    'images/Ragdoll.png':'Ragdoll',
+    'https://raw.githubusercontent.com/linqiu0-0/ClassifyYourFriend/main/client/public/images/Ragdoll.png':'Ragdoll',
+    'images/bulbasaur.png': 'bulbasaur',
 };
 
 const ExampleImages = ({ uploadLocalFile }) => {

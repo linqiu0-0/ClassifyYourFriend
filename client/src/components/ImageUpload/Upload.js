@@ -47,7 +47,7 @@ const Upload = () => {
                 </div>
                 :
                 <div className='flex flex-col gap-4' >
-                    <img src="images/placeholder.svg" alt="img_placeholder" width="auto" height="auto" className='mb-2' />
+                    <img src="images/placeholder.svg" alt="img_placeholder" width="100%" height="100%" className='mb-2' />
                     <Button size="large" variant="contained" component="label" startIcon={<AddAPhotoIcon />}>
                         Upload Images
                         <input hidden accept="image/*" multiple type="file" onChange={handleChange} />

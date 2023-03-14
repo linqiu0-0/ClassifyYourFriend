@@ -3,7 +3,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
-import { createTheme, SvgIcon } from "@mui/material";
+import { createTheme, IconButton } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import { useNavigate } from "react-router-dom";
 import PetsIcon from '@mui/icons-material/Pets';
@@ -38,28 +38,32 @@ function MainAppBar({ username, userId }) {
         <ThemeProvider theme={customTheme}>
             <AppBar color={"secondary"} position="static" sx={{ height: '4rem' }}>
                 <Box
+
                     sx={{
-                        paddingX: 5,
+                        paddingX: 2,
                     }}
                 >
-                    <Toolbar disableGutters>
-                        <SvgIcon component="a" fontSize="large" href="/" sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, pt: '3px' }}>
+                    <Toolbar>
+                        <IconButton component="a" size="large" href="/"
+                            disableRipple
+                            edge="start"
+                            color="inherit"
+                            sx={{mr: 2}}
+                        >
                             <PetsIcon />
-                        </SvgIcon>
+                        </IconButton>
 
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                            {pages.map((page) => (
-                                <Button
-                                    key={page}
-                                    onClick={() => handleNavMenu(page)}
-                                    sx={{ my: 2, color: '#100a55', display: 'block', font: 'bold' }}
-                                >
-                                    <p className='font-sans text-center font-bold text-1xl '>
-                                        {page}
-                                    </p>
-                                </Button>
-                            ))}
-                        </Box>
+                        {pages.map((page) => (
+                            <Button
+                                key={page}
+                                onClick={() => handleNavMenu(page)}
+                                sx={{ my: 2, color: '#100a55', display: { sm: 'block' } }}
+                            >
+                                <p className='font-sans text-center font-bold text-1xl '>
+                                    {page}
+                                </p>
+                            </Button>
+                        ))}
                     </Toolbar>
                 </Box>
             </AppBar>
