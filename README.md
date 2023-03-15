@@ -36,3 +36,4 @@ Frontend is deployed through Github static page hosting. To cut a new release on
     > ```
 At this point, the GitHub repository contains a branch named `gh-pages`, which contains the files that make up the distributable version of the React app. 
 You can view our deployed version at [ClassifyYourFriends](https://linqiu0-0.github.io/ClassifyYourFriend).
+3. Backend flask server is deployed on the Google cloud run. Follow this [tutorial](https://medium.com/firebase-developers/hosting-flask-servers-on-firebase-from-scratch-c97cfb204579) to learn more.

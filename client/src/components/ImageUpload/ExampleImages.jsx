@@ -1,10 +1,10 @@
 import Button from '@mui/material/Button';
 
 const image_list = {
-    'images/Siberian-Husky.jpg':'husky',
-    'images/border_collie.jpg':'border_collie',
+    'https://raw.githubusercontent.com/linqiu0-0/ClassifyYourFriend/main/client/public/images/Siberian-Husky.jpg':'husky',
+    'https://raw.githubusercontent.com/linqiu0-0/ClassifyYourFriend/main/client/public/images/border_collie.jpg':'border_collie',
     'https://raw.githubusercontent.com/linqiu0-0/ClassifyYourFriend/main/client/public/images/Ragdoll.png':'Ragdoll',
-    'images/bulbasaur.png': 'bulbasaur',
+    'https://raw.githubusercontent.com/linqiu0-0/ClassifyYourFriend/main/client/public/images/bulbasaur.png': 'bulbasaur',
 };
 
 const ExampleImages = ({ uploadLocalFile }) => {
@@ -27,10 +27,11 @@ const ExampleImages = ({ uploadLocalFile }) => {
             <p className='font-sans text-gray-600 font-bold text-1xl'>
                 No Images? Try one of these:
             </p>
-            <div className="flex flex-row h-20 gap-1">
+            <div className="flex flex-row h-20 gap-0">
                 {Object.keys(image_list).map((image, index) => (
                     <Button key={index} onClick={() => handleClickImage(image)}>
-                        <img src={image} alt={image} className="example_img" />
+                        <img src={image} alt={image} 
+                        className="example_img" />
                     </Button>
                 ))}
 
