@@ -1,5 +1,8 @@
 # ClassifyYourFriend
 Classify the breed of your dog or cat
+Try our classifier on [ClassifyYourFriends](https://linqiu0-0.github.io/ClassifyYourFriend)!
+
+
 ## Frontend
 ClassifyYourFriend frontend uses the React framework with javascript. 
 
